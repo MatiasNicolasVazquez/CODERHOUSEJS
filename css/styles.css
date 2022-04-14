@@ -1,0 +1,33 @@
+* {
+  margin: 0px;
+  padding: 0px;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+html {
+  /* etiqueta raíz */
+  font-size: 62.5%;
+  
+ 
+}
+
+body{
+  background-color: rgb(197, 213, 234);
+}
+
+
+
+header{
+  height: 100px;
+  background-color: rgb(80, 132, 132);
+  display:flex;
+  justify-content: space-between;
+  align-items: center;
+  
+}
+
+.nombreApp{
+  margin-left: 10px;
+  font-size: 25px;
+  color:rgb(35, 32, 32)
+}
