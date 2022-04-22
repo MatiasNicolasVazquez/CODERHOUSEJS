@@ -16,8 +16,7 @@ class tarea{
         this.tipo= parseInt(prompt("¿Que tipo de tarea desea agregar? (1:Física, 2:Hogareña, 3:Estudiantil)"));
         this.nombre= prompt("Ingrese el nombre de la tarea.");
         this.comienzo= parseInt(prompt("Ingrese el horario de comienzo de la tarea. (formato 24 hs sin los dos puntos)"));
-        this.duracion= parseInt(prompt("Ingrese la duracion estimada de la tarea. (formato 24 hs sin los dos puntos)"));
-
+        this.duracion= parseInt(prompt("Ingrese la duracion estimada de la tarea.(en minutos"));
     }
     mostrar(){
         if(this.tipo==1){
