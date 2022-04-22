@@ -1,37 +1,57 @@
 console.log("Hola mundo");
-
-function agregarTarea(a) {
-    if (a == 1) {
-        let fisica = prompt("Ingrese el nombre de la tarea");
-        let comienzo = parseInt(prompt("Ingrese el horario estimado de comienzo (formato 24hs (sin los dos puntos))"));
-        let duracion = parseInt(prompt("Ingrese la duracion estimada de la actividad en minutos"));
-        let final = comienzo + duracion;
-        alert("Tarea fisica agendada: " + fisica + ". Horario de comienzo: " + comienzo + "hs. Horario estimado de finalizacion: " + final + "hs.");
-
-    }
-    else if(a==2){
-        let hogar = prompt("Ingrese el nombre de la tarea");
-        let comienzo = parseInt(prompt("Ingrese el horario estimado de comienzo (formato 24hs (sin los dos puntos))"));
-        let duracion = parseInt(prompt("Ingrese la duracion estimada de la actividad en minutos"));
-        let final = comienzo + duracion;
-        alert("Tarea hogareña agendada: " + hogar + ". Horario de comienzo: " + comienzo + "hs. Horario estimado de finalizacion: " + final + "hs.");
-    }
-    else if(a==3){
-        let estudios = prompt("Ingrese el nombre de la tarea");
-        let comienzo = parseInt(prompt("Ingrese el horario estimado de comienzo (formato 24hs (sin los dos puntos))"));
-        let duracion = parseInt(prompt("Ingrese la duracion estimada de la actividad en minutos"));
-        let final = comienzo + duracion;
-        alert("Tarea relacionada al estudio agendada: " + estudios + ". Horario de comienzo: " + comienzo + "hs. Horario estimado de finalizacion: " + final + "hs.");
+class tarea{
+    constructor(nombre,tipo,comienzo,duracion){
+        this.nombre=nombre;
+        this.tipo
+        this.comienzo=parseInt(comienzo) ;
+        this.duracion=parseInt(duracion);
+        this.final=0;
     }
 
-    else {
-        alert("Actividad no valida");
+    calcularDuracion(){
+        this.final= this.comienzo+this.duracion;
+    }
+
+    cargar(){
+        this.tipo= parseInt(prompt("¿Que tipo de tarea desea agregar? (1:Física, 2:Hogareña, 3:Estudiantil)"));
+        this.nombre= prompt("Ingrese el nombre de la tarea.");
+        this.comienzo= parseInt(prompt("Ingrese el horario de comienzo de la tarea. (formato 24 hs sin los dos puntos)"));
+        this.duracion= parseInt(prompt("Ingrese la duracion estimada de la tarea. (formato 24 hs sin los dos puntos)"));
+
+    }
+    mostrar(){
+        if(this.tipo==1){
+            alert("Tarea fisica agendada: " + this.nombre + ". Horario de comienzo: " + this.comienzo + "hs. Horario estimado de finalizacion: " + this.final + "hs.");
+        }
+        else if(this.tipo==2){
+            alert("Tarea hogareña agendada: " + this.nombre + ". Horario de comienzo: " + this.comienzo + "hs. Horario estimado de finalizacion: " + this.final + "hs.");
+        }
+        else if(this.tipo==3){
+            alert("Tarea estudiantil agendada: " + this.nombre + ". Horario de comienzo: " + this.comienzo + "hs. Horario estimado de finalizacion: " + this.final + "hs.");
+        }
+        else alert("Error: tipo de tarea inexistente");
     }
 }
 
-let tareas = parseInt(prompt("¿Cuantas tareas desea agregar a la lista?"));
 
-for(i=1;i<=tareas;i++){
-let actividad = parseInt(prompt("¿Que tipo de actividad desea añadir a la lista? (1 física, 2 hogareña, 3 estudios) "));
-agregarTarea(actividad);    
+
+
+let cantidad = parseInt(prompt("¿Cuantas tareas desea agregar a la lista?"));
+const tareas = [];
+
+for(i=0;i<cantidad;i++){
+const tarea1= new tarea;
+tarea1.cargar();
+tarea1.calcularDuracion();
+tarea1.mostrar();
+tareas.push(tarea1);
 }
+
+for(j=0;j<cantidad;j++){
+    tareas[j].mostrar();
+}
+ 
+
+
+
+ 
