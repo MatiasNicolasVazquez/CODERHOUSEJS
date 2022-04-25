@@ -2,7 +2,7 @@ console.log("Hola mundo");
 class tarea{
     constructor(nombre,tipo,comienzo,duracion){
         this.nombre=nombre;
-        this.tipo
+        this.tipo=0;
         this.comienzo=parseInt(comienzo) ;
         this.duracion=parseInt(duracion);
         this.final=0;
@@ -13,10 +13,10 @@ class tarea{
     }
 
     cargar(){
-        this.tipo= parseInt(prompt("¿Que tipo de tarea desea agregar? (1:Física, 2:Hogareña, 3:Estudiantil)"));
+        this.tipo= parseInt(prompt("¿Que tipo de tarea desea agregar? (1: Física, 2: Hogareña, 3: Estudiantil)"));
         this.nombre= prompt("Ingrese el nombre de la tarea.");
         this.comienzo= parseInt(prompt("Ingrese el horario de comienzo de la tarea. (formato 24 hs sin los dos puntos)"));
-        this.duracion= parseInt(prompt("Ingrese la duracion estimada de la tarea.(en minutos"));
+        this.duracion= parseInt(prompt("Ingrese la duracion estimada de la tarea.(en minutos)"));
     }
     mostrar(){
         if(this.tipo==1){
@@ -33,10 +33,12 @@ class tarea{
 }
 
 
+const tareas = [];
+
+
 
 
 let cantidad = parseInt(prompt("¿Cuantas tareas desea agregar a la lista?"));
-const tareas = [];
 
 for(i=0;i<cantidad;i++){
 const tarea1= new tarea;
@@ -46,9 +48,42 @@ tarea1.mostrar();
 tareas.push(tarea1);
 }
 
-for(j=0;j<cantidad;j++){
+const fisicas = tareas.filter((el) => el.tipo==1);
+const hogarenias = tareas.filter((el) => el.tipo==2);
+const estudiantiles = tareas.filter((el) => el.tipo==3)
+
+
+let consulta= prompt("¿Desea ver un resumen de las tareas agendadas?");
+if(consulta=="si"||consulta=="Si"||consulta=="SI"){
+    let consulta2= parseInt(prompt("¿Quiere ver un resumen general, o desea un tipo de tarea en especifico? (0 = general, 1 = act. física, 2 = act. hogareña, 3 act. estudiantil"));
+if(consulta2==0){
+    for(j=0;j<cantidad;j++){
     tareas[j].mostrar();
+    }
 }
+else if(consulta2===1){
+    alert(fisicas);
+    console.log(fisicas);
+
+}
+else if(consulta2==2){
+    alert(hogarenias);
+    console.log(hogarenias);
+
+}
+else if(consulta2==3){
+    alert(estudiantiles);
+    console.log(estudiantiles);
+
+}
+
+else alert("opcion no valida");
+
+}
+
+else alert("opcion no valida");
+
+
  
 
 
