@@ -43,14 +43,28 @@ for (i = 0; i < cantidad; i++) {
     tarea1.calcularDuracion();
     tarea1.mostrar();
     tareas.push(tarea1);
+    
+let contenedor = document.createElement("div");
+contenedor.innerHTML= `<h3> Tipo: ${tarea1.tipo}</h3>
+<p>Tarea: ${tarea1.nombre}</p>
+<p>Comienzo: ${tarea1.comienzo}</p>
+<p>Fin: ${tarea1.final}</p>`;
+document.body.appendChild(contenedor);
 }
 /// declare estos arrays aca para que me tomen el array de tareas///
 const fisicas = tareas.filter((el) => el.tipo == 1);
 const hogarenias = tareas.filter((el) => el.tipo == 2);
-const estudiantiles = tareas.filter((el) => el.tipo == 3)
+const estudiantiles = tareas.filter((el) => el.tipo == 3);
 
 
-let consulta = prompt("¿Desea ver un resumen de las tareas agendadas?");
+
+
+
+
+
+
+
+/*let consulta = prompt("¿Desea ver un resumen de las tareas agendadas?");
 if (consulta == "si" || consulta == "Si" || consulta == "SI") {
     let consulta2 = parseInt(prompt("¿Quiere ver un resumen general, o desea un tipo de tarea en especifico? (0 = general, 1 = act. física, 2 = act. hogareña, 3 act. estudiantil"));
     if (consulta2 == 0) {
@@ -82,4 +96,4 @@ if (consulta == "si" || consulta == "Si" || consulta == "SI") {
  else if (consulta == "No" | consulta == "NO" | consulta == "no") {
     alert("Hasta luego!")
 }
- else alert("opcion no valida");
+ else alert("opcion no valida");*/
